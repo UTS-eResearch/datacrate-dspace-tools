@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+
+/* This is part of datacrate-dspace-tools, a library for implementing the
+DataCrate data packaging spec for DSpace repositories. Copyright (C) 2018
+University of Technology Sydney
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+const dspace = require("./lib/dspace.js");
+const calcyte = require("calcyte");
+const json_helper = new calcyte.jsonld();
+const path = require("path");
+const program = require("commander");
+const fs = require("fs");
+let endpoint_url;
+program
+  .version("0.1.0")
+  .description(
+    "Generates DataCrate HTML from a DSpace instance."
+  )
+  .arguments("<endpoint>")
+  .action(function(endpoint) {
+    endpoint_url = endpoint;
+  })
+  .option("-c,  --collection [collection-id]", "Dowlnoad collection by ID")
+  .option("-d,  --depth", "Maximum depth to recurse into directories")
+  .option("-m, --metadata [metadata-file]", "Metadata for the DataCrate")
+  .option("-o, --output_dir []", "Output directory")
+
+
+program.parse(process.argv);
+console.log("Endpoint", endpoint_url, "collection", program.collection)
+var d = new dspace()
+var metadata_file = program.metadata;
+var metadata;
+if (metadata_file) {
+    if (!path.isAbsolute(metadata_file)){
+        metadata_file = "./" + metadata_file;
+
+    }
+    
+    metadata = require(metadata_file)
+}
+d.init(endpoint_url, metadata, program.output_dir)
+
+
+const done = _ => {
+    console.log("I'm done");
+    fs.writeFileSync(path.join(program.output_dir,"CATALOG.json"), JSON.stringify(d.helper.json_ld, null, 4));
+}
+
+d.get_collection(program.collection, done).then(_ => {
+    console.log(d.json_ld)
+    })

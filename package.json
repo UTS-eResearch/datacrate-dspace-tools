@@ -1,0 +1,35 @@
+{
+  "name": "datacrate-dspace-tools",
+  "version": "1.0.0",
+  "description": "Libraries and scripts for extracting data from DSpace and writing it to DataCrate format",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "bin": {
+    "calcyfy": "./download_dspace"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "calcyte": "^1.0.0",
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UTS-eResearch/datacrate-dspace-tools.git"
+  },
+  "author": "Peter Sefton",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/UTS-eResearch/datacrate-dspace-tools/issues"
+  },
+  "homepage": "https://github.com/UTS-eResearch/datacrate-dspace-tools#readme"
+}
