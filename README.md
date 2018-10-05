@@ -20,7 +20,7 @@ This script is suitable for use by Nodejs developers only, it is _not_ productio
 
 - Get the code:
 
-  git clone https://code.research.uts.edu.au/eresearch/datacrate-dspace-tools.git
+  `git clone https://code.research.uts.edu.au/eresearch/datacrate-dspace-tools.git`
 
 - Link the binary for development. Type:
   npm link
@@ -34,13 +34,14 @@ This script is suitable for use by Nodejs developers only, it is _not_ productio
 
   Generates DataCrate HTML from a DSpace instance.
 
-  Options:
+Options:
 
     -V, --version                      output the version number
     -c,  --collection [collection-id]  Dowlnoad collection by ID
     -d,  --depth                       Maximum depth to recurse into directories
     -m, --metadata [metadata-file]     Metadata for the DataCrate
     -o, --output_dir []                Output directory
+    -a, --all                          Download all bitstreams - defaults to only downloading things in the ORIGINAL bundle
     -h, --help                         output usage information
 ```
 
@@ -49,6 +50,7 @@ This script is suitable for use by Nodejs developers only, it is _not_ productio
 To produce the output in the [example](https://data.research.uts.edu.au/examples/v1.0/prs_mani/), type:
 ```
 mkdir ~/working/prs_mani # Create a dir
+
 ./download_dspace -c 316  -m examples/prs_mani/prs_mani_CATALOG.json  -o ~/working/prs_mani https://opus.lib.uts.edu.au/rest
 calcyte -o ~/working/prs_mani
 ```
