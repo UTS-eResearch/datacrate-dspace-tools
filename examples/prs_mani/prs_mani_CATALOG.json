@@ -1,0 +1,42 @@
+{
+  "@graph": [
+    {
+      "@id": "https://opus.lib.uts.edu.au/handle/10453/28084",
+      "name": "P.R.S. Marni test DataCrate",
+      "description":
+        "This data set is a DataCrate demonstration ONLY, and needs further work. it was exported from a DSpace Repository as an example of a DataCrate. It contains a single Collections from the repository.",
+      "publisher": { "@id": "http://uts.edu.au" },
+      "datePublished": "2014",
+      "@type": "Dataset",
+      "path": "./",
+      "hasMember": [],
+      "creator": [
+        { "@id": "https://es.wikipedia.org/wiki/Poonamalle_Ramakrishna_Subrahmanyan_Mani" },
+        { "@id": "https://orcid.org/0000-0002-8643-5624" }
+
+      ]
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://orcid.org/0000-0002-8643-5624",
+      "name": "Heather Goodall",
+      "givenName": "Heather",
+      "familyName": "Goodall",
+      "affiliation": { "@id": "http://uts.edu.au" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://es.wikipedia.org/wiki/Poonamalle_Ramakrishna_Subrahmanyan_Mani",
+      "name": "P.R.S. Mani",
+      "givenName": "Poonamalle Ramakrishna Subrahmanyan",
+      "familyName": "Mani"
+    },
+   
+    {
+      "@id": "http://uts.edu.au",
+      "name": "University of Technology Sydney",
+      "@type": "Organization"
+    }
+  ]
+}

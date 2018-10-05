@@ -19,6 +19,7 @@ This script is suitable for use by Nodejs developers only, it is _not_ productio
 - Install [node.js](https://nodejs.org/en/). This will also install the nodejs part of [CalcyteJS](https://code.research.uts.edu.au/eresearch/CalcyteJS) a command line tool for manipulating DataCrates.
 
 - Get the code:
+
   git clone https://code.research.uts.edu.au/eresearch/datacrate-dspace-tools.git
 
 - Link the binary for development. Type:
